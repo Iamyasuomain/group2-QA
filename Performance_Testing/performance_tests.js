@@ -7,7 +7,7 @@ import { check, sleep } from 'k6';
 // =================================================================
 
 // Ensure this URL points to the product page you are testing
-const PRODUCT_URL = 'http://43.228.85.98';
+const PRODUCT_URL = 'http://10.34.112.158:8000/gb';
 
 export default function () {
   // Simulate a user accessing a single, resource-intensive page
@@ -31,15 +31,15 @@ export default function () {
 // A. Average-Load Test Options (Test for Normal Usage)
 // ---------------------------------------------------------------
 
-export let options = {
-  vus: 50,       // 50 concurrent virtual users (Your expected average load)
-  duration: '5m', // Run for 5 minutes
-  tags: { test_type: 'average_load' },
-  thresholds: {
-    'http_req_duration': ['p(95) < 1000'], // 95% of requests must be faster than 1 second
-    'http_req_failed': ['rate < 0.01'],    // Failure rate should be below 1%
-  },
-};
+// export let options = {
+//   vus: 50,       // 50 concurrent virtual users (Your expected average load)
+//   duration: '5m', // Run for 5 minutes
+//   tags: { test_type: 'average_load' },
+//   thresholds: {
+//     'http_req_duration': ['p(95) < 1000'], // 95% of requests must be faster than 1 second
+//     'http_req_failed': ['rate < 0.01'],    // Failure rate should be below 1%
+//   },
+// };
 
 
 // ---------------------------------------------------------------
@@ -60,19 +60,19 @@ export let options = {
 // ---------------------------------------------------------------
 // C. Soak Test Options (Test Long-Term Stability/Memory Leaks)
 // ---------------------------------------------------------------
-/*
-export let options = {
-  vus: 50,         // Using the average load
-  duration: '4h',  // Running for 4 hours (Long duration)
-  tags: { test_type: 'soak' },
-  // No strict thresholds needed; focus is on stability over time
-};
-*/
+
+// export let options = {
+//   vus: 50,         // Using the average load
+//   duration: '5m',  // Running for 4 hours (Long duration)
+//   tags: { test_type: 'soak' },
+//   // No strict thresholds needed; focus is on stability over time
+// };
+
 
 // ---------------------------------------------------------------
 // D. Spike Test Options (Test Resilience and Recovery Time)
 // ---------------------------------------------------------------
-/*
+
 export let options = {
   stages: [
     { duration: '5m', target: 50 },   // Establish Base Load
@@ -81,4 +81,3 @@ export let options = {
   ],
   tags: { test_type: 'spike' },
 };
-*/
