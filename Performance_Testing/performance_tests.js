@@ -45,7 +45,7 @@ export default function () {
 // ---------------------------------------------------------------
 // B. Stress Test Options (Find the Breakpoint)
 // ---------------------------------------------------------------
-// /*
+// 
 // export let options = {
 //   stages: [
 //     { duration: '5m', target: 100 },  // Gradual increase to expected maximum
@@ -63,7 +63,7 @@ export default function () {
 
 // export let options = {
 //   vus: 50,         // Using the average load
-//   duration: '5m',  // Running for 4 hours (Long duration)
+//   duration: '4h',  // Running for 4 hours (Long duration)
 //   tags: { test_type: 'soak' },
 //   // No strict thresholds needed; focus is on stability over time
 // };
